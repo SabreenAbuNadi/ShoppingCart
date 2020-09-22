@@ -23,17 +23,9 @@ function ready() {
         button.addEventListener('click', addToCartClicked)
     }
 
-    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+
 }
 
-function purchaseClicked() {
-    alert('Thank you for your purchase')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
-    }
-    updateCartTotal()
-}
 
 function removeCartItem(event) {
     var buttonClicked = event.target
@@ -42,7 +34,7 @@ function removeCartItem(event) {
 }
 
 function quantityChanged(event) {
-    var input = event.target
+    var input = event.target;
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1
     }
@@ -50,16 +42,15 @@ function quantityChanged(event) {
 }
 
 function addToCartClicked(event) {
-    var button = event.target
-    var shopItem = button.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
+    let button = event.target
+    let shopItem = button.parentElement
+    let title = shopItem.getElementsByClassName('product-info')[0].innerText
+    let price = shopItem.getElementsByClassName('product-price')[0].innerText
+    addItemToCart(title, price)
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
@@ -72,12 +63,11 @@ function addItemToCart(title, price, imageSrc) {
     }
     var cartRowContents = `
         <div class="cart-item cart-column">
-            <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
             <span class="cart-item-title">${title}</span>
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1">
+            <input class="cart-quantity-input" type="number" name="quantity" value="1">
             <button class="btn btn-danger" type="button">REMOVE</button>
         </div>`
     cartRow.innerHTML = cartRowContents
@@ -87,56 +77,56 @@ function addItemToCart(title, price, imageSrc) {
 }
 
 function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-    var total = 0
+    let cartItemContainer = document.getElementsByClassName('cart-items')[0];
+    let cartRows = cartItemContainer.getElementsByClassName('cart-row');
+    let total = 0;
     for (var i = 0; i < cartRows.length; i++) {
-        var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price = parseFloat(priceElement.innerText.replace('$', ''))
-        var quantity = quantityElement.value
-        total = total + (price * quantity)
+        var cartRow = cartRows[i];
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0];
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
+        var price = parseFloat(priceElement.innerText.replace('$', ''));
+        var quantity = quantityElement.value;
+        total = total + (price * quantity);
     }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+    total = Math.round(total * 100) / 100;
+    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
 }
-function validate(){
-    var name = document.getElementById("name").value;
-    var subject = document.getElementById("subject").value;
-    var phone = document.getElementById("phone").value;
-    var email = document.getElementById("email").value;
-    var message = document.getElementById("message").value;
-    var error_message = document.getElementById("error_message");
-    
+function validate() {
+    let name = document.getElementById("name").value;
+    let subject = document.getElementById("subject").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    let error_message = document.getElementById("error_message");
+
     error_message.style.padding = "10px";
-    
-    var text;
-    if(name.length <2){
-      text = "Please Enter valid Name";
-      error_message.innerHTML = text;
-      return false;
+
+    let text;
+    if (name.length < 2) {
+        text = "Please Enter valid Name";
+        error_message.innerHTML = text;
+        return false;
     }
-    if(subject.length <3){
-      text = "Please Enter Correct Subject";
-      error_message.innerHTML = text;
-      return false;
+    if (subject.length < 3) {
+        text = "Please Enter Correct Subject";
+        error_message.innerHTML = text;
+        return false;
     }
-    if(isNaN(phone) || phone.length != 10){
-      text = "Please Enter valid Phone Number";
-      error_message.innerHTML = text;
-      return false;
+    if (isNaN(phone) || phone.length != 10) {
+        text = "Please Enter valid Phone Number";
+        error_message.innerHTML = text;
+        return false;
     }
-    if(email.indexOf("@") == -1 || email.length < 6){
-      text = "Please Enter valid Email";
-      error_message.innerHTML = text;
-      return false;
+    if (email.indexOf("@") == -1 || email.length < 6) {
+        text = "Please Enter valid Email";
+        error_message.innerHTML = text;
+        return false;
     }
-    if(message.length <= 20){
-      text = "Please Enter More Than 20 Characters";
-      error_message.innerHTML = text;
-      return false;
+    if (message.length <= 20) {
+        text = "Please Enter More Than 20 Characters";
+        error_message.innerHTML = text;
+        return false;
     }
     alert("Message Submitted Successfully!");
     return true;
-  }
+}
