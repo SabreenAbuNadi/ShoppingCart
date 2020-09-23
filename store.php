@@ -17,7 +17,9 @@ if (!empty($productArray)) {
             <div class="product-price product-info">
                 <?php echo $productArray[$k]["price"]; ?>
             </div>
-            <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+            <button class="btn btn-primary shop-item-button" type="supmit" value="add to cart"
+            onClick="cartAction('add','<?php echo $productArray[$k]["code"]; ?>')"
+            id="add_<?php echo $productArray[$k]["code"]; ?>">add to card</button>
         </div>
 <?php
     }
