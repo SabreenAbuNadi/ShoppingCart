@@ -13,4 +13,15 @@
     <link href="store.css ?v=<?php echo time(); ?>" rel="stylesheet">
     <script src="store.js ?v=<?php echo time(); ?>" async></script>
 
-</head>
+<body>
+    <header class="main-header">
+        <nav class="nav main-nav">
+            <ul>
+                <li><a href="index.php">HOME</a></li>
+                <li><a href="about.php">ABOUT</a></li>
+            </ul>
+        </nav>
+        <h1 class="band-name band-name-large">Maneesa</h1>
+    </header>
+
+    </head>
