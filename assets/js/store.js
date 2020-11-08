@@ -1,4 +1,4 @@
-if (document.readyState == 'loading') {
+if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
     ready()
@@ -56,7 +56,7 @@ function addItemToCart(title, price) {
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
     for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
+        if (cartItemNames[i].innerText === title) {
             alert('This item is already added to the cart')
             return
         }
@@ -72,7 +72,7 @@ function addItemToCart(title, price) {
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
-    //cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+        //cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
 function updateCartTotal() {
@@ -90,6 +90,7 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100;
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
 }
+
 function validate() {
     let name = document.getElementById("name").value;
     let subject = document.getElementById("subject").value;
@@ -129,6 +130,7 @@ function validate() {
     alert("Message Submitted Successfully!");
     return true;
 }
+
 function cartAction(action, product_code) {
     var queryString = "";
     if (action != "") {
@@ -149,7 +151,7 @@ function cartAction(action, product_code) {
         url: "ajax-action.php",
         data: queryString,
         type: "POST",
-        success: function (data) {
+        success: function(data) {
             $("#cart-item").html(data);
             if (action == "add") {
                 $("#add_" + product_code + " img").attr("src",
@@ -157,6 +159,55 @@ function cartAction(action, product_code) {
                 $("#add_" + product_code).attr("onclick", "");
             }
         },
-        error: function () { }
+        error: function() {}
     });
 }
+
+$(document).ready(function() {
+    $(document).on('keyup', '#list_search', function() {
+        var value = $(this).val();
+        $.getJSON('ajax_search_list.php?q=' + value, function(data) {
+            var availableTags = data;
+            $("#list_search").autocomplete({
+                source: availableTags,
+                select: function(event, ui) {
+                    $(event.target).val(ui.item.value);
+                    $('#search_form').submit();
+                    return false;
+                },
+            });
+        });
+    });
+});
+$(document).ready(function() {
+    $("").click(function() {
+        location.reload(true);
+    });
+});
+
+$(document).ready(function() {
+    $('#submit').click(function() {
+        var image_name = $('#image').val();
+        if (image_name == '') {
+            alert("Please Select Image");
+            return false;
+        } else {
+            var extension = $('#image').val().split('.').pop().toLowerCase();
+            if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
+                alert('Invalid Image File');
+                $('#image').val('');
+                return false;
+            }
+        }
+    });
+});
+
+$('#exampleModal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('.modal-body input').val(recipient)
+})

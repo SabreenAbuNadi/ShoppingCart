@@ -6,7 +6,7 @@ require_once "ajax-action.php";
 if (!isset($_SESSION["cart_item"])) {
 ?>
     <p class="section-header" style="color:red"> No products selected! </p>
-    <button class="btn btn-primary btn-purchase" type="submit"><a href="index.php">Back To Store</a></button>
+    <button class="btn-primary btn-purchase" type="submit"><a href="index.php" style="color:black">Back To Store</a></button>
 <?php
 } else if (isset($_SESSION["cart_item"])) {
     $item_total = 0;

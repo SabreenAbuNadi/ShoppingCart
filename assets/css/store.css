@@ -42,6 +42,7 @@ p {
 }
 
 .main-nav {
+    text-align: center;
     background-color: #292c2f;
     text-align: center;
     font-size: 1.1em;
@@ -59,6 +60,7 @@ p {
 }
 
 .main-header {
+    text-align: center;
     font-family: "Booter - Zero Zero";
     background-image: url("Images/Header Background.jpg");
     background-blend-mode: multiply;
@@ -80,7 +82,7 @@ p {
 
 .content-section {
     margin: 1em;
-    padding : 2em;
+    padding: 2em;
 }
 
 .container {
@@ -91,7 +93,7 @@ p {
 .section-header {
     font-family: "Booter - Zero Zero";
     font-weight: normal;
-    color:  #1E90FF;
+    color: #1E90FF;
     text-align: center;
     font-size: 2.5em;
 }
@@ -141,7 +143,7 @@ p {
 }
 
 .btn-primary {
-    color: #1E90FF;
+    color: black;
     background-color: black;
     border: none;
     border-radius: .3em;
@@ -463,11 +465,12 @@ p {
         line-height: 1.8;
     }
 }
+
 .product-item {
     background: #F0F0F0;
     margin: 5px;
     display: inline-block;
-    padding:8px;
+    padding: 8px;
     text-align: center;
 }
 
@@ -487,15 +490,16 @@ p {
 .product-price {
     color: #F08426;
 }
+
 .shop-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-.table-wrapper{
+.table-wrapper {
     margin: 10px 70px 70px;
-    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2);
 }
 
 .fl-table {
@@ -510,7 +514,8 @@ p {
     background-color: white;
 }
 
-.fl-table td, .fl-table th {
+.fl-table td,
+.fl-table th {
     text-align: center;
     padding: 8px;
 }
@@ -525,7 +530,6 @@ p {
     background: #4FC3A1;
 }
 
-
 .fl-table thead th:nth-child(odd) {
     color: #ffffff;
     background: #324960;
@@ -535,6 +539,7 @@ p {
     background: #F8F8F8;
 }
 
+
 /* Responsive */
 
 @media (max-width: 767px) {
@@ -542,7 +547,7 @@ p {
         display: block;
         width: 100%;
     }
-    .table-wrapper:before{
+    .table-wrapper:before {
         content: "Scroll horizontally >";
         display: block;
         text-align: right;
@@ -550,10 +555,12 @@ p {
         color: white;
         padding: 0 0 10px;
     }
-    .fl-table thead, .fl-table tbody, .fl-table thead th {
+    .fl-table thead,
+    .fl-table tbody,
+    .fl-table thead th {
         display: block;
     }
-    .fl-table thead th:last-child{
+    .fl-table thead th:last-child {
         border-bottom: none;
     }
     .fl-table thead {
@@ -564,7 +571,8 @@ p {
         position: relative;
         overflow-x: auto;
     }
-    .fl-table td, .fl-table th {
+    .fl-table td,
+    .fl-table th {
         padding: 20px .625em .625em .625em;
         height: 60px;
         vertical-align: middle;
@@ -601,4 +609,218 @@ p {
     }
 }
 
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
+/****** LOGIN MODAL ******/
+
+.loginmodal-container {
+    padding: 30px;
+    max-width: 350px;
+    width: 100% !important;
+    background-color: #F7F7F7;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: roboto;
+}
+
+.loginmodal-container h1 {
+    text-align: center;
+    font-size: 1.8em;
+    font-family: roboto;
+}
+
+.loginmodal-container input[type=submit] {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.loginmodal-container input[type=text],
+input[type=password] {
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    /* border-radius: 2px; */
+    padding: 0 8px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.loginmodal-container input[type=text]:hover,
+input[type=password]:hover {
+    border: 1px solid #b9b9b9;
+    border-top: 1px solid #a0a0a0;
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.loginmodal {
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    height: 36px;
+    padding: 0 8px;
+    /* border-radius: 3px; */
+    /* -webkit-user-select: none;
+  user-select: none; */
+}
+
+.loginmodal-submit {
+    /* border: 1px solid #3079ed; */
+    border: 0px;
+    color: #fff;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    background-color: #4d90fe;
+    padding: 17px 0px;
+    font-family: roboto;
+    font-size: 14px;
+    /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit:hover {
+    /* border: 1px solid #2f5bb7; */
+    border: 0px;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    background-color: #357ae8;
+    /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    opacity: 0.6;
+    transition: opacity ease 0.5s;
+}
+
+.login-help {
+    font-size: 12px;
+}
+
+.login-btn {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+
+/* The popup form - hidden by default */
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+
+/* Add styles to the form container */
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+
+/* Full-width input fields */
+
+.form-container input[type=text],
+.form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+
+/* When the inputs get focus, do something */
+
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* Set a style for the submit/login button */
+
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+
+/* Add a red background color to the cancel button */
+
+.form-container .cancel {
+    background-color: red;
+}
+
+
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+.btn {
+    background-color: DodgerBlue;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* Darker background on mouse-over */
+
+.btn:hover {
+    background-color: RoyalBlue;
+}
+
+#myInput {
+    background-image: url('/css/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
